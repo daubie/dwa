@@ -15,41 +15,48 @@
 </head>
 <style type="text/css">
 body {
-background:#c1c1c1;
+background-color:#fff;
+background-image:url(/images/body_bg.png);
+background-repeat:repeat-x;
 font-family:Arial, Sans-serif;
+color:#ffffff;
 }
 
 #wrapper {
-margin:0px auto;
-width:900px;
-height:1000px;
-background:#fff;
--webkit-border-radius: 10px;
--moz-border-radius: 10px;
-border-radius: 10px;
 text-align:center;
+margin-top:150px;
+
 }
 
-.header {
-height:90px;
--webkit-border-radius: 10px 10px 0px 0px;
--moz-border-radius: 10px 10px 0px 0px;
-border-radius: 10px 10px 0px 0px;
-background-color:blue;
-text-align:center;
-line-height:90px;
-font-size: 32pt;
-color:#fff;
+
+.welcome {
+float:right;
+margin-right:25px;
 }
 
 </style>
 
 
-<body>	
-	<div id="wrapper">
-		<div class="header">
-			<a style="color:#fff;text-decoration:none" href="/index">'scussit</a>
-		</div>
+<body>
+	<div id='wrapper'>
+	
+		<!-- Menu for users who are logged in -->
+		<? if($user): ?>
+			
+			<a href='/users/logout'>Logout</a>
+			<a href='/posts/users/'>Change who you're following</a>
+			<a href='/posts/'>View posts</a>
+			<a href='/posts/add'>Add a new post</a>
+		
+		<!-- Menu options for users who are not logged in -->	
+		<? else: ?>
+		
+			Please <a href='/users/signup'>Sign up</a> or <a href='/users/login'>Log in</a> to continue.
+		
+		<? endif; ?>
+	
+	
+	<br>
 		
 		<?=$content;?> 
 		

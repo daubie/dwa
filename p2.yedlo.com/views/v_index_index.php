@@ -1,4 +1,12 @@
-<h1>Welcome</h1>
+<? if(!$user): ?>
+	<h2>Welcome to Scussit!</h2>
+	<br>
+	No muss..
+	<br>
+	No fuss...
+	<br>
+	Just discuss <br>
 
-<a href="users/login">Login</a>
-<a href="users/signup">Signup</a>
+<? else: ?>
+	Welcome back <?=$user->first_name?><br>
+<? endif; ?>
