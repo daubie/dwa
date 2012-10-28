@@ -69,7 +69,7 @@ public function p_login() {
 	if(!$token) {
 			
 		# Send them back to the login page
-		Router::redirect("/users/login/");
+		Router::redirect("/users/login");
 		
 	# But if we did, login succeeded! 
 	} else {
@@ -78,7 +78,7 @@ public function p_login() {
 		setcookie("token", $token, strtotime('+1 year'), '/');
 		
 		# Send them to the main page - or whever you want them to go
-		Router::redirect("/users/profile");
+		Router::redirect("/");
 					
 	}
 
