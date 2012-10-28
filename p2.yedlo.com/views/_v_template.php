@@ -15,16 +15,14 @@
 </head>
 <style type="text/css">
 body {
-background-color:#fff;
-background-image:url(/images/body_bg.png);
-background-repeat:repeat-x;
 font-family:Arial, Sans-serif;
 color:#ffffff;
+background-color:#000;
 }
 
 #wrapper {
 text-align:center;
-margin-top:150px;
+margin-top:25px;
 
 }
 
@@ -34,12 +32,24 @@ float:right;
 margin-right:25px;
 }
 
+.header {
+background:url(/images/bg_top.png);
+background-repeat:repeat-x;
+height:122px;
+}
+
+.footer {
+background:url(/images/bg_bottom.png);
+background-repeat:repeat-x;
+height:275px;
+}
+
 </style>
 
 
-<body>
+<body>	<div class="header"><!-- --></div>
 	<div id='wrapper'>
-	
+
 		<!-- Menu for users who are logged in -->
 		<? if($user): ?>
 			
@@ -59,7 +69,7 @@ margin-right:25px;
 	<br>
 		
 		<?=$content;?> 
-		
+	<div class="footer"><!-- --></div>	
 	</div>
 
 </body>

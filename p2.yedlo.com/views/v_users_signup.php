@@ -1,4 +1,4 @@
-<form style="text-align:left" method='POST' action='/users/p_signup'>
+<form style="text-align:center" method='POST' action='/users/p_signup'>
 
 	First Name<br>
 	<input type='text' name='first_name'>
