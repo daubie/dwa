@@ -29,7 +29,7 @@ public function p_signup() {
 	$_POST['token']    = sha1(TOKEN_SALT.$_POST['email'].Utils::generate_random_string());
 	
 	# Insert this user into the database 
-	$user_id = DB::instance(yedlocom_p2_yedlo_com)->insert("users", $_POST);
+	$user_id = DB::instance(DB_NAME)->insert("users", $_POST);
 
 		# For now, just confirm they've signed up - we can make this fancier later
 			$this->template->content = View::instance('v_users_signup_confirm');
