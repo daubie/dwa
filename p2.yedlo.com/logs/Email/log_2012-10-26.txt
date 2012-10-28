@@ -1,0 +1,54 @@
+2012-10-26 13:14:58 - INFO --> Controller/Method: users/p_signup 
+2012-10-26 13:14:58 - INFO --> OUTGOING EMAILS ARE DISABLED. THIS EMAIL WAS NOT SENT TO THE RECIPIENTS, ONLY webmaster@myapp.com 
+2012-10-26 13:14:58 - INFO --> From: My App (webmaster@myapp.com) 
+2012-10-26 13:14:58 - INFO --> To: My App (webmaster@myapp.com),  
+2012-10-26 13:14:58 - INFO --> CC:  
+2012-10-26 13:14:58 - INFO --> BCC:  
+2012-10-26 13:14:58 - INFO --> Subject: My App SQL Error 
+2012-10-26 13:14:58 - INFO --> Body: <h2>SQL Error</h2> INSERT INTO users SET first_nam 
+2012-10-26 13:14:59 - INFO --> FAILED TO SEND EMAIL 
+2012-10-26 13:15:02 - INFO --> Controller/Method: users/p_signup 
+2012-10-26 13:15:02 - INFO --> OUTGOING EMAILS ARE DISABLED. THIS EMAIL WAS NOT SENT TO THE RECIPIENTS, ONLY webmaster@myapp.com 
+2012-10-26 13:15:02 - INFO --> From: My App (webmaster@myapp.com) 
+2012-10-26 13:15:02 - INFO --> To: My App (webmaster@myapp.com),  
+2012-10-26 13:15:02 - INFO --> CC:  
+2012-10-26 13:15:02 - INFO --> BCC:  
+2012-10-26 13:15:02 - INFO --> Subject: My App SQL Error 
+2012-10-26 13:15:02 - INFO --> Body: <h2>SQL Error</h2> INSERT INTO users SET first_nam 
+2012-10-26 13:15:03 - INFO --> FAILED TO SEND EMAIL 
+2012-10-26 13:15:11 - INFO --> Controller/Method: users/p_signup 
+2012-10-26 13:15:11 - INFO --> OUTGOING EMAILS ARE DISABLED. THIS EMAIL WAS NOT SENT TO THE RECIPIENTS, ONLY webmaster@myapp.com 
+2012-10-26 13:15:11 - INFO --> From: My App (webmaster@myapp.com) 
+2012-10-26 13:15:11 - INFO --> To: My App (webmaster@myapp.com),  
+2012-10-26 13:15:11 - INFO --> CC:  
+2012-10-26 13:15:11 - INFO --> BCC:  
+2012-10-26 13:15:11 - INFO --> Subject: My App SQL Error 
+2012-10-26 13:15:11 - INFO --> Body: <h2>SQL Error</h2> INSERT INTO users SET first_nam 
+2012-10-26 13:15:12 - INFO --> FAILED TO SEND EMAIL 
+2012-10-26 13:15:22 - INFO --> Controller/Method: users/p_signup 
+2012-10-26 13:15:22 - INFO --> OUTGOING EMAILS ARE DISABLED. THIS EMAIL WAS NOT SENT TO THE RECIPIENTS, ONLY webmaster@myapp.com 
+2012-10-26 13:15:22 - INFO --> From: My App (webmaster@myapp.com) 
+2012-10-26 13:15:22 - INFO --> To: My App (webmaster@myapp.com),  
+2012-10-26 13:15:22 - INFO --> CC:  
+2012-10-26 13:15:22 - INFO --> BCC:  
+2012-10-26 13:15:22 - INFO --> Subject: My App SQL Error 
+2012-10-26 13:15:22 - INFO --> Body: <h2>SQL Error</h2> INSERT INTO users SET first_nam 
+2012-10-26 13:15:23 - INFO --> FAILED TO SEND EMAIL 
+2012-10-26 13:15:45 - INFO --> Controller/Method: users/p_signup 
+2012-10-26 13:15:45 - INFO --> OUTGOING EMAILS ARE DISABLED. THIS EMAIL WAS NOT SENT TO THE RECIPIENTS, ONLY webmaster@myapp.com 
+2012-10-26 13:15:45 - INFO --> From: My App (webmaster@myapp.com) 
+2012-10-26 13:15:45 - INFO --> To: My App (webmaster@myapp.com),  
+2012-10-26 13:15:45 - INFO --> CC:  
+2012-10-26 13:15:45 - INFO --> BCC:  
+2012-10-26 13:15:45 - INFO --> Subject: My App SQL Error 
+2012-10-26 13:15:45 - INFO --> Body: <h2>SQL Error</h2> INSERT INTO users SET first_nam 
+2012-10-26 13:15:46 - INFO --> FAILED TO SEND EMAIL 
+2012-10-26 13:18:39 - INFO --> Controller/Method: users/p_signup 
+2012-10-26 13:18:39 - INFO --> OUTGOING EMAILS ARE DISABLED. THIS EMAIL WAS NOT SENT TO THE RECIPIENTS, ONLY webmaster@myapp.com 
+2012-10-26 13:18:39 - INFO --> From: My App (webmaster@myapp.com) 
+2012-10-26 13:18:39 - INFO --> To: My App (webmaster@myapp.com),  
+2012-10-26 13:18:39 - INFO --> CC:  
+2012-10-26 13:18:39 - INFO --> BCC:  
+2012-10-26 13:18:39 - INFO --> Subject: My App SQL Error 
+2012-10-26 13:18:39 - INFO --> Body: <h2>SQL Error</h2> INSERT INTO users SET first_nam 
+2012-10-26 13:18:40 - INFO --> FAILED TO SEND EMAIL 

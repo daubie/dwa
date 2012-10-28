@@ -1,0 +1,1 @@
+<h3>Congratulations - Registration is successful.  Welcome to 'scussit!</h3>

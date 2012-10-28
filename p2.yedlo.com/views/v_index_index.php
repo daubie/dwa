@@ -1,6 +1,4 @@
-<pre>
-Hello World!
-Controller: c_index.php
-Method: index()
-View: v_index_index.php
-</pre>
+<h1>Welcome</h1>
+
+<a href="users/login">Login</a>
+<a href="users/signup">Signup</a>

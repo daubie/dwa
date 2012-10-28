@@ -11,7 +11,7 @@ class DB {
 
 	# singleton DB instance
 	private static $instance;
-	
+
 	# toggle whether to always re-select the database -- it is a performance drain
 	public static $always_select = FALSE;
 
@@ -20,7 +20,7 @@ class DB {
 
 	# store all queries
 	public $query_history = array();
-	
+
 	# store all query benchmarks
 	public $query_benchmarks = array();
 
@@ -28,12 +28,12 @@ class DB {
 	private function __construct($db = NULL) {
 
 		# connect to database using credentials supplied by environment.php
-		$this->connection = mysql_connect(DB_HOST, DB_USER, DB_PASS, TRUE);
-		
+		$this->connection = mysql_connect(DB_HOST, DB_USER, DB_PASS, FALSE);
+
 		# If there are problems connecting...Show full message on local, email message and die gracefully on live
 		if(mysql_error()) {
 			if (IN_PRODUCTION) {
-	
+
 					# Email app owner
 					$subject = "SQL Error";
 					$body    = "<h2>SQL Error</h2> ".$sql." ".mysql_error($this->connection);
@@ -42,15 +42,15 @@ class DB {
 						$body .= $k." = ".$v."<br>";
 					}
 					Utils::alert_admin($subject, $body);
-					
+
 					# Show a nice cryptic error
 				    die("<h2>There's been an error processing your request (#DB46)</h2>");
-			
+
 				} else {
 			 		die(Debug::dump("SQL Error: ".$sql." ".mysql_error()));
 				}
 		} 
-	
+
 		# use utf8 character encoding
 		mysql_set_charset('utf8', $this->connection);
 
@@ -83,19 +83,19 @@ class DB {
 
 	-------------------------------------------------------------------------------------------------*/
 	public function select_db($db = NULL) {
-		
+
 		# start benchmark	
 		$this->benchmark_start = microtime(TRUE);
-	
+
 		# only select database if it hasn't already or a new database was specified
 		if ($this->database === NULL || $db != $this->database || self::$always_select === TRUE) {
-			
+
 			# store specified database
 			$this->database = $db;
 
 			# select database
 			mysql_select_db($this->database, $this->connection);
-			
+
 		}
 
 	}
@@ -115,16 +115,16 @@ class DB {
 
 		# store query history
 		$this->query_history[] = $sql;
-			
+
 		# send query
 		$result = mysql_query($sql, $this->connection);
-		
+
 		# store query benchmark
 		$this->query_benchmarks[] = number_format(microtime(TRUE) - $this->benchmark_start, 4);
-		
+
 		# handle MySQL errors
 		if (! $result) {
-			
+
 			# don't show error and sql query in production
 			if (IN_PRODUCTION) {
 
@@ -136,15 +136,15 @@ class DB {
 					$body .= $k." = ".$v."<br>";
 				}
 				Utils::alert_admin($subject, $body);
-				
+
 				# Show a nice cryptic error
 			    die("<h2>There's been an error processing your request (#DB138)</h2>");
-		
+
 			} else {
 		 		die(Debug::dump("SQL Error: ".$sql." ".mysql_error($this->connection)));
 			}
 		}		
-		
+
 		# return sucessful result
 		return $result;
 
@@ -155,7 +155,7 @@ class DB {
 	Dump the last query
 	-------------------------------------------------------------------------------------------------*/
 	public function last_query($dump = TRUE) {
-		
+
 		# last query
 		$last_query = end($this->query_history);
 
@@ -166,34 +166,34 @@ class DB {
 		return ($dump) ? Debug::dump("($last_query_benchmark sec) ".$last_query, "Last MySQL Query") : $last_query;
 
 	}
-	
+
 
 	/*-------------------------------------------------------------------------------------------------
 	Show entire query history w/benchmarks
 	-------------------------------------------------------------------------------------------------*/
 	public function query_history($dump = TRUE) {
-		
+
 		$history = array();
-		
+
 		# store total execution time
 		$total_execution = 0;
-		
+
 		# build array with benchmarks
 		foreach ($this->query_history as $i => $query) {
-			
+
 			if (isset($this->query_benchmarks[$i])) {
 
 				$query = '('.$this->query_benchmarks[$i].' sec) '.$query;
 				$total_execution += $this->query_benchmarks[$i];
-				
+
 			}
-				
+
 			$history[] = $query;
 		}
-		
+
 		# add total query execution time to end
 		$history[] = "MySQL Total Execution: $total_execution sec";
-		
+
 		# toggle dumping output or just returning query history array
 		return ($dump) ? Debug::dump($history, "MySQL Query History", FALSE) : $history;
 
@@ -234,8 +234,8 @@ class DB {
 		return $mysql_fetch($result);
 
 	}
-	
-	
+
+
 	/*-------------------------------------------------------------------------------------------------
 	Returns all the rows in an array
 	Does *not* sanitize
@@ -255,19 +255,19 @@ class DB {
 		return $rows;
 
 	}
-	
-	
+
+
 	/*-------------------------------------------------------------------------------------------------
 	Alias to select_row for objects
 	Does *not* sanitize
 	-------------------------------------------------------------------------------------------------*/
 	public function select_object($sql) {
-		
+
 		return $this->select_row($sql, 'object');
-		
+
 	}
-		
-		
+
+
 	/*-------------------------------------------------------------------------------------------------
 	Return a key->value array given two columns
 	Does *not* sanitize
@@ -275,21 +275,21 @@ class DB {
 	$users = DB::instance(DB_NAME)->select_kv("SELECT user_id, first_name FROM users", 'user_id', 'name');
 	-------------------------------------------------------------------------------------------------*/
 	public function select_kv($sql, $key_column, $value_column) {
-				
+
 		$array = array();
-		
+
 		foreach ($this->select_rows($sql) as $row) {
-			
+
 			# avoid empty keys, but 0 is okay
 			if ($row[$key_column] !== NULL && $row[$key_column] !== "")
 				$array[$row[$key_column]] = $row[$value_column];
 		}
-		
+
 		return $array;
-		
+
 	}
-	
-	
+
+
 	/*-------------------------------------------------------------------------------------------------
 	Takes select_rows one step further by making the index of the results array some specified field
 	For example, if you wanted a full array of users where the index was the user_id, you could use this.
@@ -300,18 +300,18 @@ class DB {
 	$users = DB::instance(DB_NAME)->select_array('SELECT * FROM users', 'user_id');
 	-------------------------------------------------------------------------------------------------*/
 	public function select_array($sql, $key_column) {
-	
+
 		$array = array();
-		
+
 		foreach ($this->select_rows($sql) as $row) {
-			
+
 			# avoid empty keys, but 0 is okay
 			if ($row[$key_column] !== NULL && $row[$key_column] !== "")
 				$array[$row[$key_column]] = $row;
 		}
-		
+
 		return $array;
-	
+
 	}
 
 
@@ -327,7 +327,7 @@ class DB {
 	# Alias 
 	public function insert($table, $data) { return self::insert_row($table, $data); }
 	public function insert_row($table, $data) {
-						
+
 		# setup insert statement
 		$sql = "INSERT INTO $table SET";
 
@@ -345,8 +345,8 @@ class DB {
 		return mysql_insert_id();
 
 	}
-	
-	
+
+
 	/*-------------------------------------------------------------------------------------------------
 	Accepts multi-dimensional $data array of rows
 	Returns number of rows affected
@@ -359,15 +359,15 @@ class DB {
 	$results = DB::insert(DB_NAME)->insert_rows("users", $data);
 	-------------------------------------------------------------------------------------------------*/
 	public function insert_rows($table, $data) {
-	
+
 		# Fields
 			$fields = "";
 			foreach($data[0] as $field => $row) {
 				$fields .= $field.",";
 			}
-			
+
 			$fields = substr($fields, 0, -1);
-							
+
 		# Rows
 			$row_string = "";
 			$rows_string = "";
@@ -380,19 +380,19 @@ class DB {
 				$row_string  .= "),";
 				$rows_string .= $row_string;
 			}
-			
+
 			$rows_string = substr($rows_string, 0, -1);
-			
+
 		# Query
 			$q = "INSERT INTO ".$table."
 				  (".$fields.")
 				VALUES
 				  ".$rows_string;
-				  				
+
 		# Run it
 			$run = $this->query($q);
 			return mysql_affected_rows();		  
-				 
+
 	}
 
 
@@ -408,7 +408,7 @@ class DB {
 	# Alias
 	public function update($table, $data, $where_condition) { return self::update_row($table, $data, $where_condition); }
 	public function update_row($table, $data, $where_condition) {
-	
+
 		# setup update statement
 		$sql = "UPDATE $table SET";
 
@@ -430,9 +430,9 @@ class DB {
 
 		# perform query
 		$this->query($sql);
-		
+
 		return mysql_affected_rows();
-		
+
 	}	
 
 
@@ -447,22 +447,22 @@ class DB {
 	$user_id = DB::instance(DB_NAME)->update_or_insert_row("users", $data);
 	-------------------------------------------------------------------------------------------------*/
 	public function update_or_insert_row($table, $data) {
-	
+
 		# Build fields and values
 			$fields = "";
 			$values = "";
 			$dup    = "";
-			
+
 			foreach($data as $field => $value) {
 				$fields .= $field.",";
 				$values .= "'".mysql_real_escape_string($value)."',";
 				$dup    .= $field."="."'".mysql_real_escape_string($value)."',";
 			}
-			
+
 			$fields = substr($fields, 0, -1);
 			$values = substr($values, 0, -1);
 			$dup    = substr($dup, 0, -1);
-												
+
 		# Query
 			$q = "INSERT INTO ".$table."
 				  (".$fields.")
@@ -470,9 +470,9 @@ class DB {
 				  (".$values.")
 				 ON DUPLICATE KEY UPDATE ".$dup; 
 				  ;
-				  			
+
 			$this->query($q);
-		
+
 		return mysql_insert_id();
 	}
 
@@ -498,7 +498,7 @@ class DB {
 		$update = DB::instance("courses_webstartwomen_com")->update_or_insert_rows('people', $data);						
 	-------------------------------------------------------------------------------------------------*/
 	public function update_or_insert_rows($table, $data) {
-	
+
 		# Build the fields string. Ex: (person_id,first_name,email)
 		# And the duplicate key update string. Ex: first_name=VALUES(first_name),email=VALUES(email)
 		# We do this by using the indexes on the first row of data
@@ -509,15 +509,15 @@ class DB {
 				$fields .= $index.",";
 				$dup    .= $index."=VALUES(".$index."),";
 			}
-			
+
 			# Remove last comma
 			$fields = substr($fields, 0, -1);
 			$dup = substr($dup, 0, -1);
-				
+
 		# Build the data string. Ex: (1,'Ethel','ethel@aol.com'),(3,'Leroy','leroy@hotmail.com'),(3,'Francis','francis@gmail.com')
 			$values = "";
 			foreach($data as $row) {
-				
+
 				$values .= "(";
 				foreach($row as $value) {
 					$values .= "'".mysql_real_escape_string($value)."',";
@@ -527,17 +527,17 @@ class DB {
 			}
 			# Remove last comma
 			$values = substr($values, 0, -1);
-					
+
 		# Put it all together	
 			$sql = "INSERT INTO ".$table." (".$fields.") 
 					VALUES ".$values."
 					ON DUPLICATE KEY UPDATE ".$dup;
-		
+
 		# Run it
 			$run = $this->query($sql);
 			return mysql_affected_rows();	
 	}
-		
+
 
 	/*-------------------------------------------------------------------------------------------------
 	Ex:
@@ -553,8 +553,8 @@ class DB {
 		return $this->query($sql);
 
 	}
-	
-	
+
+
 	/*-------------------------------------------------------------------------------------------------
 	Accepts an array or string of data
 	Returns escaped data
@@ -563,9 +563,9 @@ class DB {
 	$_POST = DB::instance(DB_NAME)->sanitize($_POST);
 	-------------------------------------------------------------------------------------------------*/
 	public function sanitize($data) {
-	
+
 		if(is_array($data)){
-		
+
 			foreach($data as $k => $v){
 				if(is_array($v)){
 					$data[$k] = self::sanitize($v);
@@ -573,14 +573,14 @@ class DB {
 					$data[$k] = mysql_real_escape_string($v, $this->connection);
 				}
 			}
-			
+
 		} else {
 			$data = mysql_real_escape_string($data, $this->connection);
 		}
 
 		return $data;
-	
+
 	}
-	
-	
+
+
 }
