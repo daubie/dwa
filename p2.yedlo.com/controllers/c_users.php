@@ -33,7 +33,7 @@ public function p_signup() {
 
 		# For now, just confirm they've signed up - we can make this fancier later
 			$this->template->content = View::instance('v_users_signup_confirm');
-			$this->template->title   = "Congratulatoins";
+			$this->template->title   = "Congratulations";
 		# Render template
 			echo $this->template;
 }
@@ -78,7 +78,7 @@ public function p_login() {
 		setcookie("token", $token, strtotime('+1 year'), '/');
 		
 		# Send them to the main page - or whever you want them to go
-		Router::redirect("/");
+		Router::redirect("/users/profile");
 					
 	}
 
