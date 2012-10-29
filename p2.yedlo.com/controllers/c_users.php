@@ -79,12 +79,9 @@ public function p_login() {
 			
 		# Store this token in a cookie
 		setcookie("token", $token, strtotime('+1 year'), '/');
-		
-		# Send them to the main page - or whever you want them to go
-		Router::redirect("/");
-					
 	}
-
+	# Send them back to the main landing page
+	Router::redirect("/users/main");
 
 }
 public function logout() {
@@ -120,6 +117,25 @@ public function profile() {
 	# Setup view
 	$this->template->content = View::instance('v_users_profile');
 	$this->template->title   = "Profile of".$this->user->first_name;
+		
+	# Render template
+	echo $this->template;
+}
+public function main() {
+
+	# If user is blank, they're not logged in, show message and don't do anything else
+	if(!$this->user) {
+		echo "Members only. <a href='/users/login'>Login</a>";
+		
+		# Return will force this method to exit here so the rest of 
+		# the code won't be executed and the profile view won't be displayed.
+		return false;
+	}
+	
+		
+	# Setup view
+	$this->template->content = View::instance('v_users_main');
+	$this->template->title   = $this->user->first_name."'s Main Page";
 		
 	# Render template
 	echo $this->template;

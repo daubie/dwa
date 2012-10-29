@@ -22,8 +22,8 @@ background-color:#000;
 
 #wrapper {
 text-align:center;
-margin-top:25px;
-
+width:900px;
+margin:25px auto;
 }
 
 
@@ -44,6 +44,15 @@ background-repeat:repeat-x;
 height:275px;
 }
 
+.nav {
+margin-right:20px;
+}
+
+a:link {color:yellow;text-decoration:none;}      /* unvisited link */
+a:visited {color:yellow;text-decoration:none;}  /* visited link */
+a:hover {color:yellow;text-decoration:underline;}  /* mouse over link */
+a:active {color:yellow;text-decoration:underline;}  /* selected link */
+
 </style>
 
 
@@ -52,11 +61,12 @@ height:275px;
 
 		<!-- Menu for users who are logged in -->
 		<? if($user): ?>
-			
-			<a href='/users/logout'>Logout</a>
-			<a href='/posts/users/'>Change who you're following</a>
-			<a href='/posts/'>View posts</a>
-			<a href='/posts/add'>Add a new post</a>
+			<a class="nav" href='/users/main'>Main</a>			
+			<a class="nav" href='/posts/add'>Add a new post</a>
+			<a class="nav" href='/posts/'>View posts</a>
+			<a class="nav" href='/posts/users/'>Change who you're following</a>
+			<a class="nav" href='/users/profile'>Profile</a>
+			<a class="nav" href='/users/logout'>Logout</a>
 		
 		<!-- Menu options for users who are not logged in -->	
 		<? else: ?>
@@ -64,13 +74,16 @@ height:275px;
 			Please <a href='/users/signup'>Sign up</a> or <a href='/users/login'>Log in</a> to continue.
 		
 		<? endif; ?>
-	
+		<br>
+		<br>
+		<?=$content;?> 
 	
 	<br>
+	<br>
 		
-		<?=$content;?> 
-	<div class="footer"><!-- --></div>	
-	</div>
 
+
+	</div>
+	<div class="footer"><!-- --></div>	
 </body>
 </html>
