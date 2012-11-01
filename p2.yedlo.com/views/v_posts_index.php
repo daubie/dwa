@@ -6,7 +6,7 @@
 	<strong><?=$post['username']?> posted:</strong><br>
 	<?=$post['content']?>
 	<br>
-		<span style="font-size:8pt"><?=date('D M,j Y  G:i',strtotime($posts['created']))?></span>
+		<span style="font-size:8pt"><?=date('D M,j Y  G:i',strtotime($post['created']))?></span>
 	
 	<br><br>
 	</div>

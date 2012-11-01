@@ -51,6 +51,56 @@ public function login($error = NULL) {
 		echo $this->template;
 	
 }
+public function p_profile() {
+	#upload avatar file
+	$allowedExts = array("jpg", "jpeg", "gif", "png");
+$extension = end(explode(".", $_FILES["avatar"]["name"]));
+if ((($_FILES["avatar"]["type"] == "image/gif")
+|| ($_FILES["avatar"]["type"] == "image/jpeg")
+|| ($_FILES["avatar"]["type"] == "image/jpg")
+|| ($_FILES["avatar"]["type"] == "image/png")
+|| ($_FILES["avatar"]["type"] == "image/pjpeg"))
+&& ($_FILES["avatar"]["size"] < 20000)
+&& in_array($extension, $allowedExts))
+  {
+  if ($_FILES["avatar"]["error"] > 0)
+    {
+    echo "Error: " . $_FILES["avatar"]["error"] . "<br />";
+    }
+  else
+    {
+	$avatar = "/upload/".$_FILES["avatar"]["name"];
+	$avatar = mysql_real_escape_string($avatar);
+	$id = $this->user->user_id;
+	DB::instance(DB_NAME)->update("users", "$avatar", "WHERE user_id = '".$this->user->user_id."'");
+	
+    echo "Upload: " . $_FILES["avatar"]["name"] . "<br />";
+    echo "Type: " . $_FILES["avatar"]["type"] . "<br />";
+    echo "Size: " . ($_FILES["avatar"]["size"] / 1024) . " Kb<br />";
+    echo "Stored in: " . $_FILES["avatar"]["tmp_name"];
+    if (file_exists("upload/" . $_FILES["avatar"]["name"]))
+      {
+      echo $_FILES["avatar"]["name"] . " already exists. <br>";
+	  echo $avatar."<br>";
+	  echo $id;
+
+      }
+    else
+      {
+      move_uploaded_file($_FILES["avatar"]["tmp_name"],
+      "upload/" . $_FILES["avatar"]["name"]);
+      echo "Stored in: " . "upload/" . $_FILES["avatar"]["name"];
+
+
+      }
+    }
+  }
+else
+  {
+  echo "Invalid file";
+  }
+
+}
 public function p_login() {
 	
 	# Sanitize the user entered data to prevent any funny-business (re: SQL Injection Attacks)
@@ -120,6 +170,7 @@ public function profile() {
 		
 	# Render template
 	echo $this->template;
+	
 }
 public function main() {
 
