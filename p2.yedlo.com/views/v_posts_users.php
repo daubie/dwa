@@ -1,7 +1,7 @@
 <form style="text-align:left" method='POST' action='/posts/p_follow'>
 		
 	<? foreach($users as $user): ?>
-		<img src="<?=$user['picture']?>">
+		<img src="<?=$user['gender']?>">
 		<!-- Print this user's name -->
 		<?=$user['username']?>
 		

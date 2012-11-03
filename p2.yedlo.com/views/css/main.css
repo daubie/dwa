@@ -1,0 +1,58 @@
+body {
+font-family:Arial, Sans-serif;
+color:#ffffff;
+background-color:#000;
+}
+
+#wrapper {
+text-align:center;
+width:900px;
+margin:25px auto;
+}
+
+
+.welcome {
+float:right;
+margin-right:25px;
+}
+
+.top {
+background:url(/images/bg_top.png);
+background-repeat:repeat-x;
+height:122px;
+}
+
+.footer {
+background:url(/images/bg_bottom.png);
+background-repeat:repeat-x;
+height:275px;
+}
+
+.nav {
+margin-right:20px;
+}
+
+a:link {color:yellow;text-decoration:none;}      /* unvisited link */
+a:visited {color:yellow;text-decoration:none;}  /* visited link */
+a:hover {color:yellow;text-decoration:underline;}  /* mouse over link */
+a:active {color:yellow;text-decoration:underline;}  /* selected link */
+
+#logo {
+float:left;
+height:50px;
+width:200px;
+margin-top:25px;
+margin-left:50px;
+background:url('/images/logo.png');
+}
+
+#menu {
+float:left;
+text-align:center;
+line-height:120px;
+}
+
+#nav {
+width:900px;
+text-align:center;
+}

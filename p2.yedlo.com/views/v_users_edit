@@ -1,4 +1,4 @@
-<form name="reg" action="/users/p_signup" method="POST">
+<form name="reg" action="/users/p_edit" method="POST">
 <table width="274" border="0" align="center" cellpadding="2" cellspacing="0">
   
   <tr>

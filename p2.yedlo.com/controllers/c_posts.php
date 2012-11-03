@@ -47,6 +47,28 @@ class posts_controller extends base_controller {
 		$this->template->content = View::instance('v_posts_index');
 		$this->template->title   = "Posts";
 		
+		# See your own posts always
+		$q =
+		"SELECT *
+		FROM users_users 
+		WHERE user_id = (".$this->user->user_id.")
+		AND user_id_followed = (".$this->user->user_id.")";
+		$following_me = DB::instance(DB_NAME)->select_rows($q);
+
+		if(!$following_me) {
+			$q = Array("user_id" => $this->user->user_id, "created" => Time::now(), "user_id_followed" => $this->user->user_id);
+			DB::instance(DB_NAME)->insert_row('users_users', $q);
+		}
+
+		# Get all my posts
+		$q =
+		"SELECT post_id
+		FROM posts 
+		WHERE user_id = (".$this->user->user_id.")";
+		$mine = DB::instance(DB_NAME)->select_array($q, 'post_id');
+
+		$this->template->content->my_posts = $mine;
+		
 		# Build a query of the users this user is following - we're only interested in their posts
 		$q = "SELECT * 
 			FROM users_users
@@ -68,11 +90,14 @@ class posts_controller extends base_controller {
 		# Connections string example: 10,7,8 (where the numbers are the user_ids of who this user is following)
 
 		# Now, lets build our query to grab the posts
-		$q = "SELECT * 
-			FROM posts 
-			JOIN users USING (user_id)
-			WHERE posts.user_id IN (".$connections_string.")"; # This is where we use that string of user_ids we created
-					
+		if($connections_string == !NULL) {
+			$q = "SELECT * 
+				FROM posts 
+				JOIN users USING (user_id)
+				WHERE posts.user_id IN (".$connections_string.")";
+		} else {
+			$this->template->content->connections_string = $connections_string;
+		}	
 		# Run our query, store the results in the variable $posts
 		$posts = DB::instance(DB_NAME)->select_rows($q);
 		

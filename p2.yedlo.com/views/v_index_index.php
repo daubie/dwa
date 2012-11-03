@@ -1,5 +1,5 @@
 <? if(!$user): ?>
-	<h2>Welcome to Scussit!</h2>
+	<h2>Welcome!</h2>
 	<br>
 	No muss..
 	<br>
