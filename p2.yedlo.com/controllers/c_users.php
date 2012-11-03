@@ -38,6 +38,27 @@ public function p_signup() {
 			echo $this->template;
 			
 }
+   public function edit_profile() {
+        # Setup view
+	$this->template->content = View::instance('v_users_edit_profile');
+
+	# Render template
+	echo $this->template;
+    }
+    
+    public function p_edit_profile() {
+
+	# Unix timestamp of when this user was modified
+	$_POST['modified'] = Time::now();
+        
+        $w = "WHERE user_id = ".$this->user->user_id;
+
+	# Insert
+	DB::instance(DB_NAME)->update("users", $_POST, $w);
+        
+        Router::redirect("/users/profile");
+
+    }
 
 public function login($error = NULL) {
 

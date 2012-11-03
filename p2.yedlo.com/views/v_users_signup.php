@@ -29,6 +29,14 @@
     <td><input type="text" name="password" /></td>
   </tr>
   <tr>
+    <td><div align="right">Location:</div></td>
+    <td><input type="text" name="location" /></td>
+  </tr>
+  <tr>
+    <td><div align="right">Bio:</div></td>
+    <td><textarea cols=19 rows=10 name="bio"></textarea></td>
+  </tr>
+  <tr>
     <td><div align="right"></div></td>
     <td><input type="submit" value="Submit" /></td>
   </tr>
