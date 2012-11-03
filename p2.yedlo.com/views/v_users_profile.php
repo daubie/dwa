@@ -6,7 +6,7 @@
 			<img src="<?=$user->gender?>">
 		</div>
 		<div style="float:left;text-align:left">
-			<strong>Name: <?=$user->first_name?></strong><strong><?=$user->last_name?></strong><br>
+			<strong>Name: <?=$user->first_name?></strong> <strong><?=$user->last_name?></strong><br>
 			<strong>Location: <?=$user->location?></strong><br>
 			<strong>Email: <?=$user->email?></strong><br>
 			<strong>Bio: <?=$user->bio?></strong><br>
