@@ -1,4 +1,4 @@
-<form name="reg" action="/users/p_signup" method="POST">
+<form name="signup_form" action="/users/p_signup" method="POST">
 <table width="274" border="0" align="center" cellpadding="2" cellspacing="0">
   
   <tr>
@@ -11,7 +11,7 @@
   </tr>
    <tr>
     <td><div align="right">Email:</div></td>
-    <td><input type="text" name="email" /></td>
+    <td><input type="text" name="email"/></td>
   </tr>
   <tr>
     <td><div align="right">Gender:</div></td>
@@ -42,3 +42,4 @@
   </tr>
 </table>
 </form>
+
