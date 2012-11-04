@@ -1,6 +1,6 @@
 
 
-<h2><?=$user->username?>'s profile</h2><br>
+<strong><?=$user->username?>'s profile</strong> <a href="/users/edit_profile/">(Edit)</a><br>
 		
 		<div style="float:left;margin-right:10px;">
 			<img src="<?=$user->gender?>">
