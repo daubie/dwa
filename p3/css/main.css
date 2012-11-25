@@ -1,0 +1,96 @@
+
+	body {
+	background-color:#c1c1c1;
+	}
+
+	#box1 {
+	z-index:1;
+	height:230px;
+	width:320px;
+	border:1px solid white;
+	float:left;
+	background:url('/p3/images/1.png');
+	}
+
+	#box2 {
+	z-index:2;
+	height:230px;
+	width:320px;
+	border:1px solid white;
+	float:left;
+	background:url('/p3/images/2.png');
+	}
+
+	#controls {
+	float:right;
+	margin-right:175px;
+	border:1px solid #e2e2e2;
+	background-color:#cdcdcb;
+	}
+
+	#up {
+	background:url('/p3/images/up.png');
+	width:399px;
+	height:80px;
+	}
+
+	#left {
+	background:url('/p3/images/left.png');
+	width:143px;
+	height:116px;
+	margin-left:-1px;
+	float:left;
+	}
+
+	#reset {
+	background:url('/p3/images/reset.png');
+	width:116px;
+	height:116px;
+	margin-left:-1px;
+	float:left;
+	}
+
+	#right {
+	background:url('/p3/images/right.png');
+	width:141px;
+	height:116px;
+	float:left;
+	margin-left:1px;
+	}
+
+	#down {
+	background:url('/p3/images/down.png');
+	width:400px;
+	height:77px;
+	margin-left:-1px;
+	}
+
+	#opacity_plus {
+	background:url('/p3/images/plus.png');
+	width:116px;
+	height:116px;
+	float:left;
+	}
+
+	#opacity_minus {
+	background:url('/p3/images/minus.png');
+	width:116px;
+	height:116px;
+	float:left;
+	}
+
+	#mix {
+	background:url('/p3/images/compare.png');
+	width:116px;
+	height:116px;
+	float:left;
+	margin:0 auto;
+	}
+
+	#unmix {
+	background:url('/p3/images/separate.png');
+	width:116px;
+	height:116px;
+	float:left;
+	margin:0 auto;
+	}

@@ -1,145 +1,44 @@
 <doctype="!HTML">
 
 <html>
-<head>
-<script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
-<script type="text/javascript">
-        $(document).ready(function() {
-                $('#mix').click(function() {
-					$('#box2').animate({
-					'opacity' : '0.4',
-					'margin-left' : '-=322'
-					});
-				});
-                $('#unmix').click(function() {
-					$('#box2').animate({
-					'opacity' : '1',
-					'margin-left' : '0'
-					});
-				});
-				
-				$('#opacity_plus').click(function() {
-					$('#box2').css({
-					'opacity' : '+=.25'
-					 });
-				});
-				
-				$('#opacity_minus').click(function() {
-					$('#box2').css({
-					'opacity' : '-=.25'
-					 });
-				});
-				$('#up').click(function() {
-					$('#box2').css({
-					'margin-top' : '-=1'
-					 });
-				});
-				$('#down').click(function() {
-					$('#box2').css({
-					'margin-top' : '+=1'
-					 });
-				});
-				$('#left').click(function() {
-					$('#box2').css({
-					'margin-left' : '-=1'
-					 });
-				});
-				$('#right').click(function() {
-					$('#box2').css({
-					'margin-left' : '+=1'
-					 });
-				});
-				$('#reset').click(function() {
-					$('#box2').css({
-					'margin-left' : '0',
-					'margin-top' : '0',
-					'opacity' : '1'
-					 });
-				});
-});
-</script>
 
-<style type="text/css">
+	<head>
 
-body {
-background-color:#c1c1c1;
-}
+		<script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
+		<script src="/p3/javascript/tool.js"></script>
+		<link rel="stylesheet" type="text/css" href="/p3/css/main.css">
 
-#box1 {
-z-index:1;
-height:230px;
-width:320px;
-border:1px solid white;
-float:left;
-background:url('/stuff/images/1.png');
-}
+	</head>
 
-#box2 {
-z-index:2;
-height:230px;
-width:320px;
-border:1px solid white;
-float:left;
-background:url('/stuff/images/2.png');
+	<body>
 
-}
+		<div id="box1"><!-- --></div>
+		<div id="box2"><!-- --></div>
 
-#controls {
-float:right;
-width:150px;
-height:190px;
-border:1px solid #e2e2e2;
-padding:25px;
-}
+		<div id="controls">
+			<div id="mix"><!-- --></div>
+			<div id="unmix"><!-- --></div>
+			<div style="clear:both"><!-- --></div>
+			<br><br>
 
-#up {
-width:60px;
-margin-left:35px;
-}
-#left {
-width:40px;
+			<div>Fine tune:<br>
+				<div id="up"><!-- --></div>
+				<div id="left"><!-- --></div>
+				<div id="reset"><!-- --></div>
+				<div id="right"><!-- --></div>
+				<div style="clear:both"><!-- --></div>
+				<div id="down"><!-- --></div>
+			</div>
 
-}
-#reset {
-width:40px;
-}
-#right {
-width:40px;
-}
-#down {
-width:60px;
-margin-left:35px;
-}
+			<div>Opacity:<br>
+			<div id="opacity_plus"><!-- --></div>
+			<div id="opacity_minus"><!-- --></div>
+			<div style="clear:both"><!-- --></div>
+			</div>
 
-</style>
+		</div>
+		<div style="clear:both"><!-- --></div>
 
-</head>
-
-<body>
-
-
-
-<div id="box1"><!-- --></div>
-<div id="box2"><!-- --></div>
-<div id="controls">
-	<input id="mix" type="button" value="Compare">
-	<input id="unmix" type="button" value="Separate">
-	<br><br>
-
-<div>Fine tune:<br>
-	<input id="up" type="button" value="&#8743;"><br>
-	<input id="left" type="button" value=" < ">
-	<input id="reset" type="button" value=" O ">
-	<input id="right" type="button" value=" > "><br>
-	<input id="down" type="button" value="&#8744;">
-</div>
-
-	Opacity:<br>
-	<input id="opacity_plus" type="button" value="+">
-	<input id="opacity_minus" type="button" value="-">
-
-
-</div>
-<div style="clear:both"><!-- --></div>
-</body>
+	</body>
+	
 </html>
