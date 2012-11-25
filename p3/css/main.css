@@ -9,7 +9,7 @@
 	width:320px;
 	border:1px solid white;
 	float:left;
-	background:url('/p3/images/1.png');
+	background:url('/dwa/p3/images/1.png');
 	}
 
 	#box2 {
@@ -18,7 +18,7 @@
 	width:320px;
 	border:1px solid white;
 	float:left;
-	background:url('/p3/images/2.png');
+	background:url('/dwa/p3/images/2.png');
 	}
 
 	#controls {
@@ -29,13 +29,13 @@
 	}
 
 	#up {
-	background:url('/p3/images/up.png');
+	background:url('/dwa/p3/images/up.png');
 	width:399px;
 	height:80px;
 	}
 
 	#left {
-	background:url('/p3/images/left.png');
+	background:url('/dwa/p3/images/left.png');
 	width:143px;
 	height:116px;
 	margin-left:-1px;
@@ -43,7 +43,7 @@
 	}
 
 	#reset {
-	background:url('/p3/images/reset.png');
+	background:url('/dwa/p3/images/reset.png');
 	width:116px;
 	height:116px;
 	margin-left:-1px;
@@ -51,7 +51,7 @@
 	}
 
 	#right {
-	background:url('/p3/images/right.png');
+	background:url('/dwa/p3/images/right.png');
 	width:141px;
 	height:116px;
 	float:left;
@@ -59,28 +59,28 @@
 	}
 
 	#down {
-	background:url('/p3/images/down.png');
+	background:url('/dwa/p3/images/down.png');
 	width:400px;
 	height:77px;
 	margin-left:-1px;
 	}
 
 	#opacity_plus {
-	background:url('/p3/images/plus.png');
+	background:url('/dwa/p3/images/plus.png');
 	width:116px;
 	height:116px;
 	float:left;
 	}
 
 	#opacity_minus {
-	background:url('/p3/images/minus.png');
+	background:url('/dwa/p3/images/minus.png');
 	width:116px;
 	height:116px;
 	float:left;
 	}
 
 	#mix {
-	background:url('/p3/images/compare.png');
+	background:url('/dwa/p3/images/compare.png');
 	width:116px;
 	height:116px;
 	float:left;
@@ -88,7 +88,7 @@
 	}
 
 	#unmix {
-	background:url('/p3/images/separate.png');
+	background:url('/dwa/p3/images/separate.png');
 	width:116px;
 	height:116px;
 	float:left;
