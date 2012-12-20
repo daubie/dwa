@@ -50,8 +50,12 @@
 			<input type='text' name='height'>
 			<br><br>
 			
-			Weight (lbs)<br>
+			Current Weight (lbs)<br>
 			<input type='text' name='weight'>
+			<br><br>
+			
+			Goal Weight (lbs)<br>
+			<input type='text' name='gweight'>
 			<br><br>
 			
 			Sex<br>

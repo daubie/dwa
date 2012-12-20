@@ -66,6 +66,7 @@ border:1px solid #000;
 width: 600px;
 margin-top:50px;
 padding:10px;
+float:left;
 }
 
 #signIn {
@@ -110,7 +111,7 @@ width:50%;
 border:1px solid black;
 }
 
-#todaysRec {
+#mainBar {
 margin-top:25px;
 -webkit-border-radius: 15px;
 -moz-border-radius: 15px;
@@ -119,15 +120,16 @@ padding:25px;
 width:500px;
 background-color:#ffff99;
 border:1px solid black;
+float:left;
 }
 
 #sideBar {
 -webkit-border-radius: 15px;
 -moz-border-radius: 15px;
 border-radius: 15px;
-margin-top:-75px;
-margin-right:25px;
-float:right;
+margin-top:25px;
+margin-left:50px;
+float:left;
 width:300px;
 border:1px solid black;
 height:500px;
@@ -143,7 +145,11 @@ height:500px;
 		
 		<div style="width:1024px;margin:0px auto;height:100px;">
 			<a href="/" style="border:none;float:left"><img style="margin:10px;" src="/images/yedlo_logo.png" /></a>
+			<? if($user) : ?>
 			<span style="float:right;margin-top:60px;margin-right:25px;"><strong>Welcome back, <?=$user->first_name?></strong></span> 
+			<? else: ?>
+			<span style="float:right;margin-top:60px;margin-right:25px;"><strong>Welcome to Yedlo! Create an account now!</strong></span> 
+			<? endif ?>
 			<div id="clear:both"><!-- --></div>		
 		</div>
 		

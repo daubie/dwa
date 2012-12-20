@@ -43,6 +43,10 @@
 			<input type='text' name='weight' value="<?=$user->weight?>" />
 			<br><br>
 			
+			Goal Weight (lbs)<br>
+			<input type='text' name='gweight' value="<?=$user->gweight?>" />
+			<br><br>
+			
 			
 			Activity Level<br>
 			<select name="activity">
