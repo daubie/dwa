@@ -1,5 +1,4 @@
-<script type="text/javascript">
-		 $(document).ready(function(){
+	$(document).ready(function(){
 		 var now = <?=$user->weight ?>;
 		 var then = <?=$user->gweight ?>;
 		 var diff = now - then;
@@ -94,48 +93,3 @@ else{
 	document.getElementById("myResults").innerHTML = modf2;
 	}
 }
-
-</script>	
-<div id="mainBar">
-
-	<h1>Members Area</h1>
-	
-	<hr>
-	
-	<div id=reg_welcome">
-		
-		<p>
-			<strong>Hey, <?=$user->first_name?></strong></br></br>
-		
-			Welcome to the members area, where your data is put to use.  Try our recipes, catered to your daily caloric needs.
-		</p>
-
-	</div>
-
-	<h2 style="float:left">Your Stats</h2> <a style="float:left;line-height:60px; margin-left:10px;" href="/users/edit_profile">edit</a>
-	<div style="clear:both"><!-- --></div>
-	<hr>
-	
-	Age: <?=$user->birthday?><br>
-	Height: <?=$user->height?>"<br>
-	Weight: <?=$user->weight?>lbs<br>
-	Goal Weight: <?=$user->gweight?>lbs<br>
-	Sex: <?=$user->gender?><br>
-	Activity Level: <?=$user->activity?>	<br>
-	Daily Calories Needed: <span id="myResults"></span>
-</div>
-
-<div id="sideBar"><h3 style="text-align:center;padding:4px">Try these recipes selected just for you!</h3><br><hr>
-<div style="padding:20px" id="try"></div>
-</div>
-
-<div style="clear:both"><!-- --></div>
-<div>
-<p>
-*******Users can see calories needed to sustain current weight - using BMR formula in Javascript**********
-</p>
-
-<p>
-********I wanted to have more targeting choices for recipes - but I haven't found a Free API that provides the ingredients and nutritional info.  I'm not ready to pay yet, so I made a simple javascript function to pass a variable into the JSON url to show the idea.******
-</p>
-</div>
