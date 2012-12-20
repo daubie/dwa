@@ -1,4 +1,5 @@
 <script type="text/javascript">
+//********I wanted to have more targeting choices for recipes - but I haven't found a Free API that provides the ingredients and nutritional info.  I'm not ready to pay yet, so I made a //simple javascript function to pass a variable into the JSON url to show the idea.******
 		 $(document).ready(function(){
 		 var now = <?=$user->weight ?>;
 		 var then = <?=$user->gweight ?>;
@@ -25,7 +26,7 @@
 				document.getElementById("try").innerHTML=output;
 				});
 		});
-
+//*******Users can see calories needed to sustain current weight - using BMR formula in Javascript**********
 function bmr(){
 var w= <?= $user->weight ?>;
 var g= "<?= $user->gender ?>";
@@ -131,11 +132,4 @@ else{
 
 <div style="clear:both"><!-- --></div>
 <div>
-<p>
-*******Users can see calories needed to sustain current weight - using BMR formula in Javascript**********
-</p>
 
-<p>
-********I wanted to have more targeting choices for recipes - but I haven't found a Free API that provides the ingredients and nutritional info.  I'm not ready to pay yet, so I made a simple javascript function to pass a variable into the JSON url to show the idea.******
-</p>
-</div>

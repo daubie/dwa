@@ -64,8 +64,11 @@
 		<div id="content">
 		<?=$content;?> 
 		</div>
-
-
+<div style="clear:both"><!-- --></div>
+<div>
+<hr>
+&copy;2012 Yedlo.com
+</div>
 	</div>
 
 
