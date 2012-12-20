@@ -99,7 +99,7 @@ public function profile() {
 	
 	# Setup view
 	$this->template->content = View::instance('v_users_profile');
-	$this->template->title   = "Profile of".$this->user->first_name;
+	$this->template->title   = "Profile of " . $this->user->first_name;
 		
 	# Render template
 	echo $this->template;
